@@ -57,6 +57,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_difference("Product.count", 0) do
       delete product_url(products(:two))
     end
+    # error page 117
     assert_redirected_to products_url
   end
 
