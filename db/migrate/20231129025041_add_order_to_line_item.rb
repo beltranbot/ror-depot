@@ -1,0 +1,12 @@
+class AddOrderToLineItem < ActiveRecord::Migration[7.1]
+  def up
+    add_reference :line_items, :order, null: true, foreign_key: true
+    change_column :line_items, :cart_id, :integer, null: true
+  end
+
+  def down
+    change_column :line_items, :cart_id, :integer, null: false
+    remove_reference :line_items, :order, null: true, foreign_key: true
+  end
+
+end
