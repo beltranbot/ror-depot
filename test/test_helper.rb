@@ -1,9 +1,11 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require "authentication_helpers"
 
 module ActiveSupport
   class TestCase
+    include AuthenticationHelpers
     # Run tests in parallel with specified workers
     parallelize(workers: :number_of_processors)
 
